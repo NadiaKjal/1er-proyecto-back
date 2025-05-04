@@ -1,6 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
-//require("./base-datos/config.db");
+require("../base-Datos/config.db");
 class Server {
   constructor(port) {
     this.port = process.env.PORT || port;
@@ -13,7 +13,7 @@ class Server {
   }
 
   routes() {
-    this.app.use("/productos", require("./routes/productos.routes"));
+    this.app.use("/api", require("./routes/index.routes"));
   }
 
   listen() {
