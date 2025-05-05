@@ -10,8 +10,8 @@ const router = Router();
 
 router.get("/", obtenerTodosLosUsuarios);
 router.get("/:id", obtenerUnUsuario);
-router.post("/", crearUsuario);
-router.put("/", editarUsuario);
-router.delete("/", eliminarUsuario);
+router.post("/register", crearUsuario);
+router.put("/:id", editarUsuario);
+router.delete("/:id", eliminarUsuario);
 
 module.exports = router;

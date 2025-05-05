@@ -1,25 +1,56 @@
+const {
+  obtenerTodosLosUsuariosBD,
+  obtenerUnUsuarioBD,
+  crearUsuarioBD,
+  editarUsuarioBD,
+  eliminarUsuarioBD,
+} = require("../services/usuarios.services");
+
 const obtenerTodosLosUsuarios = async (req, res) => {
+  const { usuarios, statusCode, error } = await obtenerTodosLosUsuariosBD();
   try {
-  } catch (error) {}
+    res.status(statusCode).json({ usuarios });
+  } catch {
+    res.status(statusCode).json({ error });
+  }
 };
 
 const obtenerUnUsuario = async (req, res) => {
+  const { usuario, statusCode, error } = await obtenerUnUsuarioBD();
   try {
-  } catch (error) {}
+    res.status(statusCode).json({ usuario });
+  } catch {
+    res.status(statusCode).json({ error });
+  }
 };
 const crearUsuario = async (req, res) => {
+  const { msg, statusCode, error } = await crearUsuarioBD(req.body);
   try {
-  } catch (error) {}
+    res.status(statusCode).json({ msg });
+  } catch {
+    res.status(statusCode).json({ error });
+  }
 };
 
 const editarUsuario = async (req, res) => {
+  const { msg, statusCode, error } = await editarUsuarioBD(
+    req.params.id,
+    req.body
+  );
   try {
-  } catch (error) {}
+    res.status(statusCode).json({ msg });
+  } catch {
+    res.status(statusCode).json({ error });
+  }
 };
 
 const eliminarUsuario = async (req, res) => {
+  const { msg, statusCode, error } = await eliminarUsuarioBD(req.params.id);
   try {
-  } catch (error) {}
+    res.status(statusCode).json({ msg });
+  } catch {
+    res.status(statusCode).json({ error });
+  }
 };
 
 module.exports = {
